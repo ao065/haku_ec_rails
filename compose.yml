@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:18
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - haku_ec_rails:/var/lib/postgresql/18/docker
+
+    ports:
+      - "55433:5432"
+
+volumes:
+  haku_ec_rails:
