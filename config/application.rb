@@ -47,7 +47,8 @@ module HakuEcRails
       g.helper false
       g.test_framework :rspec,
                        routing_specs: false,
-                       view_specs: false
+                       view_specs: false,
+                       request_specs: false
     end
   end
 end
