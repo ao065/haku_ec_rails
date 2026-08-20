@@ -60,4 +60,7 @@ group :development, :test do
   gem "rubocop-factory_bot", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rake", require: false
+
+  gem "prosopite"
+  gem "pg_query"
 end
