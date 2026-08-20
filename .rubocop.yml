@@ -1,8 +1,126 @@
-# Omakase Ruby styling for Rails
-inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+AllCops:
+  NewCops: disable
+  Exclude:
+    - bin/**/*
+    - node_modules/**/*
+    - vendor/**/*
+    - db/schema.rb
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+plugins:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-rspec_rails
+  - rubocop-capybara
+  - rubocop-factory_bot
+  - rubocop-performance
+  - rubocop-rake
+
+# Bundler Department
+Bundler/OrderedGems:
+  Enabled: false
+
+# Gemspec Department
+Gemspec/AddRuntimeDependency:
+  Enabled: false
+
+Gemspec/AttributeAssignment:
+  Enabled: true
+
+Gemspec/DeprecatedAttributeAssignment:
+  Enabled: true
+
+Gemspec/DevelopmentDependencies:
+  Enabled: true
+
+Gemspec/OrderedDependencies:
+  Enabled: false
+
+Gemspec/RequireMFA:
+  Enabled: false
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+# Style Department
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/MapIntoArray:
+  Enabled: true
+
+Style/SymbolProc:
+  Enabled: true
+
+Style/GuardClause:
+  Enabled: true
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+# Metrics Department
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 25
+  Exclude:
+    - config/environments/**/*
+  AllowedMethods:
+    - describe
+    - context
+    - it
+
+Metrics/MethodLength:
+  Enabled: false
+
+# Rails Department
+Rails/ActionOrder:
+  Enabled: true
+
+Rails/ActiveRecordCallbacksOrder:
+  Enabled: true
+
+Rails/DuplicateAssociation:
+  Enabled: true
+
+# Rspec Department
+RSpec/ContextWording:
+  Enabled: false
+
+# Systemテストではexpectの数が多くなるため無効化
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/DescribedClass:
+  Enabled: false
+
+# Capybara Department
+Capybara/AmbiguousClick:
+  Enabled: true
+
+# FactoryBot Department
+FactoryBot/ConsistentParenthesesStyle:
+  Enabled: true
+
+FactoryBot/FactoryNameStyle:
+  Enabled: true
+
+FactoryBot/IdSequence:
+  Enabled: true
+
+FactoryBot/SyntaxMethods:
+  Enabled: true
